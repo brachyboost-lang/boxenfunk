@@ -1,0 +1,94 @@
+{
+  "_hinweis": "Quellen-Whitelist der Pipeline. Neue Quelle = neuer Eintrag, kein Code noetig. 'stichwoerter': wenn gesetzt, muss Titel oder Teaser mindestens eines enthalten (fuer breite Feeds). 'sprache' steuert nur den Hinweis an den Writer.",
+  "quellen": [
+    {
+      "name": "Formel1.de",
+      "url": "https://www.formel1.de/rss/formel-1/feed.xml",
+      "ressort": "formel",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (F1)",
+      "url": "https://de.motorsport.com/rss/f1/news/",
+      "ressort": "formel",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (F2)",
+      "url": "https://de.motorsport.com/rss/f2/news/",
+      "ressort": "formel",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (F3)",
+      "url": "https://de.motorsport.com/rss/f3/news/",
+      "ressort": "formel",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (WEC)",
+      "url": "https://de.motorsport.com/rss/wec/news/",
+      "ressort": "langstrecke",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (IMSA)",
+      "url": "https://de.motorsport.com/rss/imsa/news/",
+      "ressort": "langstrecke",
+      "sprache": "de"
+    },
+    {
+      "name": "Motorsport.com (DTM)",
+      "url": "https://de.motorsport.com/rss/dtm/news/",
+      "ressort": "gt-dtm",
+      "sprache": "de"
+    },
+    {
+      "name": "Sportscar365",
+      "url": "https://sportscar365.com/feed/",
+      "ressort": "langstrecke",
+      "sprache": "en"
+    },
+    {
+      "name": "DailySportsCar",
+      "url": "https://www.dailysportscar.com/feed",
+      "ressort": "langstrecke",
+      "sprache": "en"
+    },
+    {
+      "name": "iRacing.com",
+      "url": "https://www.iracing.com/feed/",
+      "ressort": "simracing",
+      "sprache": "en"
+    },
+    {
+      "name": "Traxion",
+      "url": "https://traxion.gg/feed/",
+      "ressort": "simracing",
+      "sprache": "en",
+      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "rennsport", "esports", "special event"]
+    },
+    {
+      "name": "Boxthislap",
+      "url": "https://boxthislap.org/feed/",
+      "ressort": "simracing",
+      "sprache": "en",
+      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "kunos"]
+    },
+    {
+      "name": "bsimracing",
+      "url": "https://www.bsimracing.com/feed/",
+      "ressort": "simracing",
+      "sprache": "en",
+      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "kunos"]
+    }
+  ],
+  "_todo_keine_feeds_gefunden": [
+    "NLS / nuerburgring-langstrecken-serie.de (kein RSS auffindbar, Stand 07/2026)",
+    "RCN / rcn.de (kein RSS auffindbar)",
+    "ADAC GT Masters / adac-motorsport.de (kein RSS auffindbar)",
+    "German Time Attack Masters (nur Social Media)",
+    "Overtake.gg (Feed hinter Bot-Schutz)",
+    "Porsche Carrera Cup (offizielle Quelle pruefen)"
+  ]
+}

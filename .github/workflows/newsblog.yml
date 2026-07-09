@@ -1,0 +1,77 @@
+# Boxenfunk-Pipeline: laeuft 4x taeglich, sammelt Motorsport-/Simracing-News,
+# schreibt gepruefte Kurzposts, committet Posts + neu gebaute Seite und
+# deployt site/ anschliessend auf GitHub Pages.
+#
+# LLM: GitHub Models (kostenlos) ueber den automatischen GITHUB_TOKEN —
+# kein Secret und kein API-Account noetig. Braucht nur "models: read" unten.
+
+name: newsblog
+
+on:
+  schedule:
+    - cron: "23 4,10,16,22 * * *"   # 4x taeglich (UTC), versetzt zur vollen Stunde
+  workflow_dispatch: {}             # manueller Start ueber den Actions-Tab
+
+# Nie zwei Laeufe gleichzeitig (wuerde sich beim Committen in die Quere kommen).
+concurrency:
+  group: newsblog
+  cancel-in-progress: false
+
+jobs:
+  lauf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      models: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Abhaengigkeiten installieren
+        run: npm install --no-audit --no-fund
+
+      - name: Pipeline laufen lassen
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node pipeline/lauf.mjs
+
+      - name: Neue Posts committen
+        run: |
+          git config user.name "boxenfunk-pipeline"
+          git config user.email "actions@users.noreply.github.com"
+          git add posts daten site
+          if git diff --cached --quiet; then
+            echo "Keine neuen Posts in diesem Lauf."
+          else
+            git commit -m "auto: neue Beitraege $(date -u '+%Y-%m-%d %H:%M') UTC"
+            git push
+          fi
+
+  # Deployt den aktuellen Stand von site/ auf GitHub Pages.
+  # Holt bewusst frisch "main" — inklusive des Auto-Commits aus dem lauf-Job.
+  pages:
+    needs: lauf
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: "site"
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

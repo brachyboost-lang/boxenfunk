@@ -1,0 +1,15 @@
+{
+  "name": "motorsport-newsblog",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Boxenfunk - automatisch kuratierter Motorsport- und Simracing-Newsblog",
+  "type": "module",
+  "scripts": {
+    "lauf": "node pipeline/lauf.mjs",
+    "sammeln-test": "node pipeline/lauf.mjs --nur-sammeln",
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
