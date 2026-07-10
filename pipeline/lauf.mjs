@@ -13,14 +13,14 @@
   Ein leerer Lauf ist ok, ein falscher Post nicht.
 
   Aufruf:
-    node pipeline/lauf.mjs               kompletter Lauf (braucht ANTHROPIC_API_KEY)
-    node pipeline/lauf.mjs --nur-sammeln nur Feeds testen, nichts schreiben (kein Key noetig)
+    node pipeline/lauf.mjs               kompletter Lauf (braucht GITHUB_TOKEN)
+    node pipeline/lauf.mjs --nur-sammeln nur Feeds testen, nichts schreiben (kein Token noetig)
 */
 
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { artikelSammeln, gesehenLaden, gesehenSpeichern, titelNormalisieren } from "./sammeln.mjs";
+import { artikelSammeln, gesehenLaden, gesehenSpeichern, titelNormalisieren, titelAehnlichkeit, volltextHolen } from "./sammeln.mjs";
 import { postSchreiben, faktenGate, RateLimitFehler } from "./schreiben.mjs";
 
 const HIER = path.dirname(fileURLToPath(import.meta.url));
@@ -49,8 +49,8 @@ async function main() {
   console.log(`[lauf] ${quellenDatei.quellen.length} Quellen, ${Object.keys(gesehen.eintraege).length} bekannte Artikel im Gedaechtnis`);
 
   // ---- Stufe 1+2: sammeln, filtern, deduplizieren --------------------------
-  const kandidaten = await artikelSammeln(quellenDatei.quellen, gesehen);
-  console.log(`[lauf] ${kandidaten.length} neue relevante Artikel gefunden`);
+  const { kandidaten, quellenUpdates } = await artikelSammeln(quellenDatei.quellen, gesehen);
+  console.log(`[lauf] ${kandidaten.length} neue relevante Artikel, ${quellenUpdates.length} Zusatzquellen fuer bestehende Posts`);
 
   if (nurSammeln) {
     for (const k of kandidaten) {
@@ -67,6 +67,30 @@ async function main() {
     process.exit(1);
   }
 
+  // ---- Zusatzquellen an bestehende Posts haengen ----------------------------
+  // Dieselbe Story taucht oft Stunden/Tage spaeter in einer zweiten Quelle auf.
+  // Statt sie wegzuwerfen, ergaenzen wir den Quellen-Block des Posts.
+  let quellenErgaenzt = 0;
+
+  function quelleErgaenzen(slug, quellenName, url) {
+    const datei = path.join(POSTS_ORDNER, `${slug}.json`);
+    if (!fs.existsSync(datei)) return false;
+    const post = JSON.parse(fs.readFileSync(datei, "utf8"));
+    const schonDa = post.quellen.some(function (q) {
+      return q.url === url || q.name === quellenName;
+    });
+    if (schonDa) return false;
+    post.quellen.push({ name: quellenName, url });
+    fs.writeFileSync(datei, JSON.stringify(post, null, 2));
+    console.log(`[lauf] ZUSATZQUELLE: ${quellenName} -> ${slug}`);
+    quellenErgaenzt++;
+    return true;
+  }
+
+  for (const update of quellenUpdates) {
+    quelleErgaenzen(update.slug, update.quellenName, update.url);
+  }
+
   // ---- Stufe 3+4: schreiben und pruefen ------------------------------------
   const auswahl = kandidaten.slice(0, MAX_POSTS_PRO_LAUF);
   let veroeffentlicht = 0;
@@ -75,6 +99,8 @@ async function main() {
   for (const artikel of auswahl) {
     const kennung = `${artikel.quelle.name}: ${artikel.titel}`;
     try {
+      // Volltext nur fuer die tatsaechliche Auswahl holen (spart Zeit + Traffic).
+      artikel.volltext = await volltextHolen(artikel.link);
       const entwurf = await postSchreiben(artikel);
       if (!entwurf) {
         console.log(`[writer] verworfen (zu duenn/kein JSON): ${kennung}`);
@@ -89,6 +115,25 @@ async function main() {
         continue;
       }
 
+      // Zweite Dubletten-Pruefung NACH dem Schreiben: der deutsche Titel des
+      // Entwurfs gegen die deutschen Titel bestehender Posts. Faengt dieselbe
+      // Story aus anders formulierten (auch englischen) Quelltiteln — dann wird
+      // die Quelle ergaenzt statt ein Duplikat veroeffentlicht.
+      const deNorm = titelNormalisieren(entwurf.titel);
+      let duplikatVon = null;
+      for (const [schluessel, eintrag] of Object.entries(gesehen.eintraege)) {
+        if (!schluessel.startsWith("post:")) continue;
+        if (titelAehnlichkeit(deNorm, eintrag.de || "") >= 0.5) {
+          duplikatVon = schluessel.slice(5);
+          break;
+        }
+      }
+      if (duplikatVon) {
+        console.log(`[lauf] DUPLIKAT von "${duplikatVon}" — Quelle ergaenzt statt neuem Post: ${kennung}`);
+        quelleErgaenzen(duplikatVon, artikel.quelle.name, artikel.link);
+        continue;
+      }
+
       // Post speichern. Dateiname = Datum + Slug -> stabil, sortierbar, lesbar.
       const datum = new Date().toISOString();
       const slug = `${datum.slice(0, 10)}-${slugErzeugen(entwurf.titel)}`;
@@ -97,6 +142,7 @@ async function main() {
         datum,
         ressort: artikel.quelle.ressort,
         serie: entwurf.serie,
+        tags: entwurf.tags,
         text: entwurf.text,
         quellen: [{ name: artikel.quelle.name, url: artikel.link }]
       };
@@ -107,7 +153,8 @@ async function main() {
 
       // Titel des fertigen Posts auch als Dublette merken, damit dieselbe
       // Story aus einer zweiten Quelle nicht nochmal erscheint.
-      gesehen.eintraege[`post:${slug}`] = { titelNorm: titelNormalisieren(artikel.titel), datum };
+      // titelNorm = Original-Quelltitel, de = unser deutscher Post-Titel.
+      gesehen.eintraege[`post:${slug}`] = { titelNorm: titelNormalisieren(artikel.titel), de: deNorm, datum };
     } catch (fehler) {
       if (fehler instanceof RateLimitFehler) {
         // Tageslimit erreicht: Lauf sauber beenden, bisher fertige Posts behalten.
@@ -136,7 +183,7 @@ async function main() {
   console.log(`[lauf] Fertig: ${veroeffentlicht} veroeffentlicht, ${verworfen} verworfen, ${kandidaten.length - auswahl.length} wegen Kostendeckel uebersprungen`);
 
   // ---- Stufe 6: Seite neu bauen ---------------------------------------------
-  if (veroeffentlicht > 0) {
+  if (veroeffentlicht > 0 || quellenErgaenzt > 0) {
     const { seiteBauen } = await import("../build.mjs");
     seiteBauen();
   }

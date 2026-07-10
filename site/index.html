@@ -31,6 +31,20 @@
   .quellen { margin-top: 18px; padding-top: 12px; border-top: 1px solid #eee; font-size: 13px; color: #666; }
   .quellen a { color: #0057b8; }
   .transparenz { font-size: 12px; color: #999; margin-top: 8px; }
+  .auszug { margin: 8px 0 6px; font-size: 14px; color: #555; }
+  .tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { border: 1px solid #ddd; background: #fafafa; color: #555; font-size: 12px;
+         padding: 2px 10px; border-radius: 999px; cursor: pointer; }
+  .tag:hover { border-color: #4f46e5; color: #4f46e5; }
+  article .tag { cursor: default; }
+  article .tag:hover { border-color: #ddd; color: #555; }
+  .filter input { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 15px;
+                  border: 2px solid #d0d0d0; border-radius: 8px; outline: none; }
+  .filter input:focus { border-color: #4f46e5; }
+  .ressorts { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .rbtn { border: 2px solid var(--rf); color: var(--rf); background: #fff; font-size: 13px;
+          font-weight: 600; padding: 4px 14px; border-radius: 999px; cursor: pointer; }
+  .rbtn.aktiv { background: var(--rf); color: #fff; }
   footer { background: #111; color: #999; font-size: 13px; padding: 20px 16px; }
   footer a { color: #ccc; }
   .zurueck { font-size: 14px; }
@@ -43,156 +57,264 @@
   <p>Motorsport & Simracing — kuratierte News auf Deutsch</p>
 </div></header>
 <main>
-<div class="karte">
+<div class="filter karte">
+  <input id="suche" type="search" placeholder="Suchen: Titel, Tags, Inhalt …" autocomplete="off">
+  <div class="ressorts">
+    <button class="rbtn aktiv" data-ressort="alle" style="--rf:#111">Alle</button>
+    <button class="rbtn" data-ressort="formel" style="--rf:#e10600">Formel</button><button class="rbtn" data-ressort="langstrecke" style="--rf:#0057b8">Langstrecke</button><button class="rbtn" data-ressort="gt-dtm" style="--rf:#00843d">GT & DTM</button><button class="rbtn" data-ressort="nordschleife" style="--rf:#f5a800">Nordschleife</button><button class="rbtn" data-ressort="simracing" style="--rf:#6d28d9">Simracing</button>
+  </div>
+</div>
+<p id="keineTreffer" style="display:none;text-align:center;color:#888">Nichts gefunden — Suche oder Filter anpassen.</p>
+<div class="karte" data-ressort="langstrecke" data-suche="darren leung optimiert ergebnisse durch gt3-auto-wechsel wec darren leung, fahrer in der fia wec lmgt3, nutzt den wechsel zwischen verschiedenen gt3-autos als gezielte trainingsmethode. während viele amateurfahrer dies als ablenkung betrachten würden, sieht leung darin eine möglichkeit, seine fähigkeiten zu verbessern. in den letzten zwei saisons hat er verschiedene fahrzeuge getestet, um seine leistung zu maximieren. leungs ansatz ist ein beispiel dafür, wie bronze-klassifizierte fahrer in der heutigen zeit bereit sind, außergewöhnliche maßnahmen zu ergreifen, um ihre ergebnisse zu steigern.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">WEC</span>
   <h2><a href="posts/2026-07-09-darren-leung-optimiert-ergebnisse-durch-gt3-auto-wechsel.html">Darren Leung optimiert Ergebnisse durch GT3-Auto-Wechsel</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Darren Leung, Fahrer in der FIA WEC LMGT3, nutzt den Wechsel zwischen verschiedenen GT3-Autos als gezielte Trainingsmethode. Während viele Amateurfahrer dies al…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="langstrecke" data-suche="6h são paulo: hersteller präsentieren sich in interlagos wec vor dem bevorstehenden rennen in são paulo versammelten sich fahrzeuge aller hersteller zu einem gruppenfoto auf dem circuito de interlagos. zusätzlich hat dsc erfahren, dass die teams über den aktuellen stand der rennen im nahen osten in katar und bahrain informiert werden sollen.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">WEC</span>
   <h2><a href="posts/2026-07-09-6h-s-o-paulo-hersteller-praesentieren-sich-in-interlagos.html">6H São Paulo: Hersteller präsentieren sich in Interlagos</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Vor dem bevorstehenden Rennen in São Paulo versammelten sich Fahrzeuge aller Hersteller zu einem Gruppenfoto auf dem Circuito de Interlagos.  Zusätzlich hat DSC…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="langstrecke" data-suche="rast: bmw-fahrer und wrt haben sich in diesem jahr gesteigert wec bmw hat eine starke position in der fahrer- und herstellerwertung der wec. rené rast betont, dass dies nicht nur auf das evo-upgrade zurückzuführen ist. er hebt hervor, dass sowohl die fahrer als auch das team wrt in diesem jahr ihre leistung verbessert haben.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">WEC</span>
   <h2><a href="posts/2026-07-09-rast-bmw-fahrer-und-wrt-haben-sich-in-diesem-jahr-gesteigert.html">Rast: BMW-Fahrer und WRT haben sich in diesem Jahr gesteigert</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">BMW hat eine starke Position in der Fahrer- und Herstellerwertung der WEC. René Rast betont, dass dies nicht nur auf das Evo-Upgrade zurückzuführen ist. Er hebt…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="ralf schumacher: russell muss sich keine sorgen machen f1 ralf schumacher äußert sich zur aktuellen situation von george russell bei mercedes. er ist der meinung, dass russell sich keine sorgen um seinen job machen muss. schumacher glaubt, dass der mercedes-fahrer derzeit fest im sattel sitzt und es keinen grund für einen austausch gibt. diese einschätzung basiert auf russells leistungen und seiner position im team, die schumacher als stabil betrachtet.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-09-ralf-schumacher-russell-muss-sich-keine-sorgen-machen.html">Ralf Schumacher: Russell muss sich keine Sorgen machen</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Ralf Schumacher äußert sich zur aktuellen Situation von George Russell bei Mercedes. Er ist der Meinung, dass Russell sich keine Sorgen um seinen Job machen mus…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="langstrecke" data-suche="oracle wird gründungspartner von imsa labs imsa imsa und der globale technologiekonzern oracle haben heute bekannt gegeben, dass oracle als gründungspartner von imsa labs fungieren wird. imsa labs ist die formalisierte plattform für die zusammenarbeit zwischen imsa und seinen automobil- sowie technologiepartnern. ein zentraler aspekt der partnerschaft ist die einführung des oracle cloud innovation studio. dieses neue, auf startups ausgerichtete programm soll die innovationskraft in der motorsportbranche fördern.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">IMSA</span>
   <h2><a href="posts/2026-07-09-oracle-wird-gruendungspartner-von-imsa-labs.html">Oracle wird Gründungspartner von IMSA Labs</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">IMSA und der globale Technologiekonzern Oracle haben heute bekannt gegeben, dass Oracle als Gründungspartner von IMSA Labs fungieren wird. IMSA Labs ist die for…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="simracing" data-suche="assetto corsa evo version 0.8 veröffentlicht assetto corsa kunos simulazioni und 505 games haben das update version 0.8 für das early access-spiel assetto corsa evo veröffentlicht. dieses update bringt drei neue autos sowie eine neue strecke in form des grand prix circuits. darüber hinaus bietet das release 0.8 erweiterte möglichkeiten für nutzergenerierte inhalte und eine umfassende überarbeitung der vr-funktionalität.">
   <span class="badge" style="background:#6d28d9">Simracing</span><span class="serie">Assetto Corsa</span>
   <h2><a href="posts/2026-07-09-assetto-corsa-evo-version-0-8-veroeffentlicht.html">Assetto Corsa Evo Version 0.8 veröffentlicht</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Kunos Simulazioni und 505 Games haben das Update Version 0.8 für das Early Access-Spiel Assetto Corsa Evo veröffentlicht. Dieses Update bringt drei neue Autos s…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="langstrecke" data-suche="vorschau auf die 6 stunden von são paulo der fia wec wec die fia wec kehrt an diesem wochenende mit den 6 stunden von são paulo zurück. nach dem le mans-rennen im letzten monat rücken die punktekämpfe in der weltmeisterschaft für die teams und fahrer in den fokus. dies ist das erste auslandsrennen der saison.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">WEC</span>
   <h2><a href="posts/2026-07-09-vorschau-auf-die-6-stunden-von-s-o-paulo-der-fia-wec.html">Vorschau auf die 6 Stunden von São Paulo der FIA WEC</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Die FIA WEC kehrt an diesem Wochenende mit den 6 Stunden von São Paulo zurück. Nach dem Le Mans-Rennen im letzten Monat rücken die Punktekämpfe in der Weltmeist…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="simracing" data-suche="iracing erhöht abopreise ab august 2026 iracing iracing wird die abopreise zum zweiten mal in seiner fast 20-jährigen geschichte ab dem 18. august 2026 erhöhen. aktuelle iracer haben die möglichkeit, jetzt zu den bestehenden preisen zu verlängern. eine vorzeitige verlängerung fügt zusätzliche abonnementszeit an das ende des aktuellen abonnements hinzu und ersetzt nicht das bestehende abonnement.">
   <span class="badge" style="background:#6d28d9">Simracing</span><span class="serie">iRacing</span>
   <h2><a href="posts/2026-07-09-iracing-erhoeht-abopreise-ab-august-2026.html">iRacing erhöht Abopreise ab August 2026</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">iRacing wird die Abopreise zum zweiten Mal in seiner fast 20-jährigen Geschichte ab dem 18. August 2026 erhöhen. Aktuelle iRacer haben die Möglichkeit, jetzt zu…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="audi setzt auf langfristigen aufbau im f1-team f1 audi-projektleiter mattia binotto betont die notwendigkeit von geduld im aufbau des formel-1-teams. er erklärt, dass das team nicht auf schnelle punkte fokussiert ist, sondern einen langfristigen plan verfolgt. zudem stärkt binotto nico hülkenberg den rücken und hebt dessen bedeutung für das team hervor.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-09-audi-setzt-auf-langfristigen-aufbau-im-f1-team.html">Audi setzt auf langfristigen Aufbau im F1-Team</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Audi-Projektleiter Mattia Binotto betont die Notwendigkeit von Geduld im Aufbau des Formel-1-Teams. Er erklärt, dass das Team nicht auf schnelle Punkte fokussie…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="technisches problem bei williams während pirelli-test f1 mercedes und williams haben in silverstone die reifen für die saison 2027 getestet und dabei fast 1.200 kilometer zurückgelegt. der test verlief jedoch nicht ohne schwierigkeiten, da es bei williams ein technisches problem gab. weitere details zu den genauen problemen wurden nicht genannt.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-09-technisches-problem-bei-williams-waehrend-pirelli-test.html">Technisches Problem bei Williams während Pirelli-Test</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Mercedes und Williams haben in Silverstone die Reifen für die Saison 2027 getestet und dabei fast 1.200 Kilometer zurückgelegt. Der Test verlief jedoch nicht oh…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="mehr sprintrennen in der formel 1 2027 angekündigt f1 in der formel-1-saison 2027 wird die anzahl der sprintrennen erhöht. diese wird von sechs auf neun oder zehn rennen steigen. ein sprintrennen ist bereits festgelegt.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-09-mehr-sprintrennen-in-der-formel-1-2027-angekuendigt.html">Mehr Sprintrennen in der Formel 1 2027 angekündigt</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">In der Formel-1-Saison 2027 wird die Anzahl der Sprintrennen erhöht. Diese wird von sechs auf neun oder zehn Rennen steigen. Ein Sprintrennen ist bereits festge…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="mercedes nutzt neuen qualifying-trick f1 mercedes hat eine lücke im reglement entdeckt, die es dem team ermöglicht, vorteile im qualifying zu erzielen. dieser neue trick ähnelt einem verfahren, das zuvor in der saison 2026 verboten wurde. die genaue funktionsweise und die auswirkungen auf die wettbewerbsfähigkeit des teams sind noch nicht vollständig bekannt.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-09-mercedes-nutzt-neuen-qualifying-trick.html">Mercedes nutzt neuen Qualifying-Trick</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Mercedes hat eine Lücke im Reglement entdeckt, die es dem Team ermöglicht, Vorteile im Qualifying zu erzielen. Dieser neue Trick ähnelt einem Verfahren, das zuv…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="simracing" data-suche="iracing weekly tune-in: events vom 8. bis 15. juli 2026 iracing die iracing weekly tune-in ausgabe informiert über die verfügbaren übertragungen in der woche vom 8. bis 15. juli 2026. es werden offizielle iracing esports sowie ausgewählte community-events vorgestellt, die für zuschauer interessant sind. die zuschauer können sich auf ein abwechslungsreiches programm freuen, das sowohl offizielle als auch von der community organisierte veranstaltungen umfasst.">
   <span class="badge" style="background:#6d28d9">Simracing</span><span class="serie">iRacing</span>
   <h2><a href="posts/2026-07-08-iracing-weekly-tune-in-events-vom-8-bis-15-juli-2026.html">iRacing Weekly Tune-in: Events vom 8. bis 15. Juli 2026</a></h2>
   <div class="datum">9. Juli 2026</div>
+  <p class="auszug">Die iRacing Weekly Tune-in Ausgabe informiert über die verfügbaren Übertragungen in der Woche vom 8. bis 15. Juli 2026. Es werden offizielle iRacing eSports sow…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="george russell: emotionales silverstone-podium nach aufholjagd f1 george russell hat ein rennen mit vielen wendungen erlebt und konnte schließlich das podium in silverstone erreichen. er reflektiert über die herausforderungen, die er während des rennens überwinden musste, und betont die besondere bedeutung des silverstone-kurses für ihn. russell beschreibt, wie er nach einem rückschlag zurückgekämpft hat und welche emotionen ihn während des rennens begleitet haben.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-george-russell-emotionales-silverstone-podium-nach-aufholjag.html">George Russell: Emotionales Silverstone-Podium nach Aufholjagd</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">George Russell hat ein Rennen mit vielen Wendungen erlebt und konnte schließlich das Podium in Silverstone erreichen. Er reflektiert über die Herausforderungen,…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="ferrari-fauxpas bremst hamilton in silverstone f1 eine kurzfristige set-up-änderung vor dem start des rennens in silverstone führte dazu, dass der ferrari von lewis hamilton aus dem gleichgewicht geriet. hamilton bemerkte erst während des rennens, dass diese falsche flügeleinstellung der grund für seinen rückstand war. die anpassung hatte negative auswirkungen auf die performance des fahrzeugs.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-ferrari-fauxpas-bremst-hamilton-in-silverstone.html">Ferrari-Fauxpas bremst Hamilton in Silverstone</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Eine kurzfristige Set-up-Änderung vor dem Start des Rennens in Silverstone führte dazu, dass der Ferrari von Lewis Hamilton aus dem Gleichgewicht geriet. Hamilt…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="simracing" data-suche="garrett lowe gewinnt erneut in der enascar iracing championship iracing garrett lowe von bs+competition hat beim enascar coca-cola iracing championship series in iowa den sieg errungen. lowe, der im letzten jahr seine erste saison in der nascar euro series begann, setzt seine erfolgreiche virtuelle rennkarriere fort, die seit 2019 läuft. seine geschichte, die den übergang vom sim-racing zur realität dokumentiert, wird weiterhin häufig thematisiert.">
   <span class="badge" style="background:#6d28d9">Simracing</span><span class="serie">iRacing</span>
   <h2><a href="posts/2026-07-08-garrett-lowe-gewinnt-erneut-in-der-enascar-iracing-champions.html">Garrett Lowe gewinnt erneut in der eNASCAR iRacing Championship</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Garrett Lowe von BS+COMPETITION hat beim eNASCAR Coca-Cola iRacing Championship Series in Iowa den Sieg errungen. Lowe, der im letzten Jahr seine erste Saison i…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="formel 1 plant abschaffung von kundenmotoren ab 2031 f1 die fia erwägt, die nutzung von kunden-powerunits in der formel 1 ab 2031 abzuschaffen. stattdessen sollen drittanbieter-motoren angeboten werden. diese maßnahme zielt darauf ab, bedenken hinsichtlich der unabhängigkeit der teams zu adressieren. die diskussion über die motorenregelungen ist teil der bemühungen, die wettbewerbsbedingungen in der formel 1 zu verbessern und eine größere chancengleichheit zu schaffen.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-formel-1-plant-abschaffung-von-kundenmotoren-ab-2031.html">Formel 1 plant Abschaffung von Kundenmotoren ab 2031</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Die FIA erwägt, die Nutzung von Kunden-Powerunits in der Formel 1 ab 2031 abzuschaffen. Stattdessen sollen Drittanbieter-Motoren angeboten werden. Diese Maßnahm…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="szafnauer: silverstone wichtige lektion für antonelli f2 kimi antonelli blieb beim rennen in silverstone erstmals außerhalb der punkteränge. trotz dieses rückschlags betrachten sowohl otmar szafnauer als auch martin brundle das rennen als wichtigen schritt in seiner entwicklung. sie betonen, dass solche erfahrungen entscheidend für das wachstum eines fahrers sind und antonelli wertvolle lektionen aus diesem rennen ziehen kann.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F2</span>
   <h2><a href="posts/2026-07-08-szafnauer-silverstone-wichtige-lektion-fuer-antonelli.html">Szafnauer: Silverstone wichtige Lektion für Antonelli</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Kimi Antonelli blieb beim Rennen in Silverstone erstmals außerhalb der Punkteränge. Trotz dieses Rückschlags betrachten sowohl Otmar Szafnauer als auch Martin B…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="auktion: ayrton sennas rennhelm erzielt 500.000 pfund f1 der originalhelm von ayrton senna aus dem jahr 1992 hat bei einer auktion einen preis von 500.000 pfund erzielt. dieses stück motorsport-geschichte hat alle erwartungen übertroffen und wechselt nun den besitzer. die auktion zeigt das anhaltende interesse und die wertschätzung für sennas erbe im motorsport.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-auktion-ayrton-sennas-rennhelm-erzielt-500-000-pfund.html">Auktion: Ayrton Sennas Rennhelm erzielt 500.000 Pfund</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Der Originalhelm von Ayrton Senna aus dem Jahr 1992 hat bei einer Auktion einen Preis von 500.000 Pfund erzielt. Dieses Stück Motorsport-Geschichte hat alle Erw…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="simracing" data-suche="iracing – 24 stunden von spa 2026 iracing die 24 stunden von spa sind ein langstreckenrennen, das seit 1923 in belgien auf dem circuit de spa-francorchamps ausgetragen wird. es ist die dritte runde der intercontinental gt challenge series in der realen welt. der circuit de spa-francorchamps gehört zu den traditionsreichsten rennstrecken im motorsport und ist die heimat des großen preises von belgien sowie der 24 stunden von spa.">
   <span class="badge" style="background:#6d28d9">Simracing</span><span class="serie">iRacing</span>
   <h2><a href="posts/2026-07-08-iracing-24-stunden-von-spa-2026.html">iRacing – 24 Stunden von Spa 2026</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Die 24 Stunden von Spa sind ein Langstreckenrennen, das seit 1923 in Belgien auf dem Circuit de Spa-Francorchamps ausgetragen wird. Es ist die dritte Runde der …</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="palmer warnt vor vergleichen zwischen antonelli und russell f1 formel-1-experte jolyon palmer warnt vor verfrühten vergleichen zwischen dem mercedes-youngster kimi antonelli und seinem teamkollegen george russell. palmer betont, dass solche urteile zu früh kommen und die entwicklung von antonelli nicht angemessen berücksichtigen. er hebt hervor, dass jeder fahrer seine eigene karriere und seinen eigenen weg hat, was direkte vergleiche schwierig macht. palmer fordert dazu auf, antonelli die zeit zu geben, sich zu entwickeln und seine fähigkeiten in der formel 1 unter beweis zu stellen, bevor endgültige bewertungen vorgenommen werden.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-palmer-warnt-vor-vergleichen-zwischen-antonelli-und-russell.html">Palmer warnt vor Vergleichen zwischen Antonelli und Russell</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Formel-1-Experte Jolyon Palmer warnt vor verfrühten Vergleichen zwischen dem Mercedes-Youngster Kimi Antonelli und seinem Teamkollegen George Russell. Palmer be…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="max verstappen frustriert: &quot;spa und monza werden schwierig&quot; f1 max verstappen äußert bedenken hinsichtlich der kommenden rennen in spa und monza. nach dem rennen in silverstone sieht er bei red bull insbesondere im energiemanagement erheblichen nachholbedarf. verstappen betont, dass die herausforderungen in diesen beiden rennstrecken nicht zu unterschätzen sind und er sich auf die bevorstehenden aufgaben vorbereitet.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-max-verstappen-frustriert-spa-und-monza-werden-schwierig.html">Max Verstappen frustriert: &quot;Spa und Monza werden schwierig&quot;</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Max Verstappen äußert Bedenken hinsichtlich der kommenden Rennen in Spa und Monza. Nach dem Rennen in Silverstone sieht er bei Red Bull insbesondere im Energiem…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="alonso kritisiert 2026er formel-1-autos f1 fernando alonso äußert nach dem grand prix in silverstone seine bedenken bezüglich der neuen formel-1-autos, die ab 2026 eingesetzt werden sollen. er ist der meinung, dass für diese fahrzeuge kein talent mehr erforderlich sei. alonso betont, dass der einfluss der fahrer auf das renngeschehen stark eingeschränkt wird und dies die wettbewerbsfähigkeit beeinträchtigen könnte.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-alonso-kritisiert-2026er-formel-1-autos.html">Alonso kritisiert 2026er Formel-1-Autos</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Fernando Alonso äußert nach dem Grand Prix in Silverstone seine Bedenken bezüglich der neuen Formel-1-Autos, die ab 2026 eingesetzt werden sollen. Er ist der Me…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="wolff erwartet harte duelle mit ferrari bis saisonende f1 toto wolff sieht ferrari nach dem sieg in silverstone als ernsthaften gegner bis zum ende der saison. er erwartet, dass die konkurrenz zwischen mercedes und ferrari intensiv bleiben wird. fred vasseur, teamchef von ferrari, dämpft jedoch die diskussionen über einen möglichen titelkampf und betont, dass es noch viele rennen gibt, in denen sich die situation ändern kann.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-wolff-erwartet-harte-duelle-mit-ferrari-bis-saisonende.html">Wolff erwartet harte Duelle mit Ferrari bis Saisonende</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Toto Wolff sieht Ferrari nach dem Sieg in Silverstone als ernsthaften Gegner bis zum Ende der Saison. Er erwartet, dass die Konkurrenz zwischen Mercedes und Fer…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="ferrari soll hamilton im titelkampf priorisieren f1 ex-ferrari-ingenieur rob smedley äußert die meinung, dass ferrari im aktuellen formel-1-titelkampf alles auf lewis hamilton setzen sollte. er glaubt, dass eine stallregie notwendig ist, um hamilton im wm-kampf vor charles leclerc priorität einzuräumen. smedley sieht dies als entscheidenden schritt, um die chancen der scuderia im wettbewerb zu maximieren.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-ferrari-soll-hamilton-im-titelkampf-priorisieren.html">Ferrari soll Hamilton im Titelkampf priorisieren</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Ex-Ferrari-Ingenieur Rob Smedley äußert die Meinung, dass Ferrari im aktuellen Formel-1-Titelkampf alles auf Lewis Hamilton setzen sollte. Er glaubt, dass eine …</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="tv-quoten silverstone: saisonbestleistung für sky f1 die tv-quoten für den grand prix von großbritannien zeigen einen aufschwung im sommer. sky erzielte dabei die saisonbestleistung unter den deutschsprachigen tv-sendern. zusätzlich wurden auch die quoten von rtl und orf analysiert, die ebenfalls beim rennen präsent waren.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-tv-quoten-silverstone-saisonbestleistung-fuer-sky.html">TV-Quoten Silverstone: Saisonbestleistung für Sky</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Die TV-Quoten für den Grand Prix von Großbritannien zeigen einen Aufschwung im Sommer. Sky erzielte dabei die Saisonbestleistung unter den deutschsprachigen TV-…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="gt-dtm" data-suche="maximilian paul erleidet wirbelverletzung nach dtm-unfall dtm nach dem schweren unfall von maximilian paul beim dtm-rennen am norisring sind die verletzungen des fahrers nun bekannt. teamchef gottfried grasser bestätigte, dass der 26-jährige dresdner sowohl einen wadenbein- als auch einen schienbeinbruch erlitten hat. zudem wurde eine lendenwirbelfraktur diagnostiziert. diese informationen wurden drei tage nach dem vorfall veröffentlicht, nachdem zunächst nur von einer unklaren verletzung die rede war. der unfall ereignete sich während des samstagsrennens, und die schwere der verletzungen wirft fragen zur weiteren teilnahme von paul in der dtm auf.">
   <span class="badge" style="background:#00843d">GT &amp; DTM</span><span class="serie">DTM</span>
   <h2><a href="posts/2026-07-08-maximilian-paul-erleidet-wirbelverletzung-nach-dtm-unfall.html">Maximilian Paul erleidet Wirbelverletzung nach DTM-Unfall</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Nach dem schweren Unfall von Maximilian Paul beim DTM-Rennen am Norisring sind die Verletzungen des Fahrers nun bekannt. Teamchef Gottfried Grasser bestätigte, …</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="button: w17 passt nicht zu russells fahrstil f1 jenson button hat die schwierigkeiten von george russell nicht dem fahrer selbst zugeschrieben, sondern sieht die ursache im mercedes w17. laut button passt das fahrzeug nicht zu russells fahrstil. zusätzlich lobte button das außergewöhnliche tempo von kimi antonelli, was auf dessen talent hinweist.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">F1</span>
   <h2><a href="posts/2026-07-08-button-w17-passt-nicht-zu-russells-fahrstil.html">Button: W17 passt nicht zu Russells Fahrstil</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Jenson Button hat die Schwierigkeiten von George Russell nicht dem Fahrer selbst zugeschrieben, sondern sieht die Ursache im Mercedes W17. Laut Button passt das…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="langstrecke" data-suche="gt world challenge asia startet am fuji speedway gt masters die gt world challenge asia und der japan cup veranstalten an diesem wochenende ihr erstes von zwei &quot;sro gt powertour&quot;-events am fuji speedway. dieses event fällt in eine geschäftige zeit im sportwagenrennsport, da gleichzeitig die fia wec und imsa auf der anderen seite des pazifiks aktiv sind. es werden 25 fahrzeuge erwartet, die um den sieg kämpfen.">
   <span class="badge" style="background:#0057b8">Langstrecke</span><span class="serie">GT Masters</span>
   <h2><a href="posts/2026-07-08-gt-world-challenge-asia-startet-am-fuji-speedway.html">GT World Challenge Asia startet am Fuji Speedway</a></h2>
   <div class="datum">8. Juli 2026</div>
+  <p class="auszug">Die GT World Challenge Asia und der Japan Cup veranstalten an diesem Wochenende ihr erstes von zwei &quot;SRO GT PowerTour&quot;-Events am Fuji Speedway. Dieses Event fäl…</p>
+  <div class="tags"></div>
 </div>
-<div class="karte">
+<div class="karte" data-ressort="formel" data-suche="willkommen beim boxenfunk in eigener sache ueber den blog sonstiges boxenfunk bündelt ab jetzt nachrichten aus dem motorsport und dem simracing in kurzen deutschen zusammenfassungen: formel 1 bis formel 4, wec, imsa und elms, dtm und gt-sport, die nürburgring-szene — und auf der virtuellen seite iracing mit seinen special events, le mans ultimate und die assetto-corsa-familie. die beiträge entstehen automatisch aus einer festen liste seriöser quellen und werden maschinell gegen den originaltext geprüft, bevor sie erscheinen. unter jedem beitrag ist die quelle verlinkt — details dazu stehen auf der über-seite. los geht's.">
   <span class="badge" style="background:#e10600">Formel</span><span class="serie">Sonstiges</span>
   <h2><a href="posts/2026-07-07-willkommen-beim-boxenfunk.html">Willkommen beim Boxenfunk</a></h2>
   <div class="datum">7. Juli 2026</div>
+  <p class="auszug">Boxenfunk bündelt ab jetzt Nachrichten aus dem Motorsport und dem Simracing in kurzen deutschen Zusammenfassungen: Formel 1 bis Formel 4, WEC, IMSA und ELMS, DT…</p>
+  <div class="tags"><button class="tag" data-tag="in eigener sache">in eigener sache</button><button class="tag" data-tag="ueber den blog">ueber den blog</button></div>
 </div>
+<script>
+// Filter + Suche: rein clientseitig. "aktivRessort" haelt den gedrueckten
+// Kategorie-Knopf, das Suchfeld filtert zusaetzlich ueber data-suche.
+var aktivRessort = "alle";
+var sucheFeld = document.getElementById("suche");
+var karten = document.querySelectorAll(".karte[data-ressort]");
+
+function filtern() {
+  var frage = sucheFeld.value.toLowerCase().trim();
+  var sichtbar = 0;
+  karten.forEach(function (karte) {
+    var passtRessort = aktivRessort === "alle" || karte.dataset.ressort === aktivRessort;
+    var passtSuche = !frage || karte.dataset.suche.indexOf(frage) !== -1;
+    var zeigen = passtRessort && passtSuche;
+    karte.style.display = zeigen ? "" : "none";
+    if (zeigen) sichtbar++;
+  });
+  document.getElementById("keineTreffer").style.display = sichtbar ? "none" : "block";
+}
+
+sucheFeld.addEventListener("input", filtern);
+
+document.querySelectorAll(".rbtn").forEach(function (knopf) {
+  knopf.addEventListener("click", function () {
+    document.querySelectorAll(".rbtn").forEach(function (k) { k.classList.remove("aktiv"); });
+    knopf.classList.add("aktiv");
+    aktivRessort = knopf.dataset.ressort;
+    filtern();
+  });
+});
+
+// Klick auf einen Tag-Chip uebernimmt den Tag in die Suche.
+document.querySelectorAll(".tag").forEach(function (chip) {
+  chip.addEventListener("click", function () {
+    sucheFeld.value = chip.dataset.tag;
+    filtern();
+    sucheFeld.focus();
+  });
+});
+</script>
 </main>
 <footer><div class="innen">
   <a href="ueber.html">Über</a> · <a href="impressum.html">Impressum</a> ·

@@ -82,35 +82,46 @@ function jsonAusAntwort(text) {
 // ---------------------------------------------------------------------------
 
 const WRITER_SYSTEM = `Du bist Kurator eines deutschsprachigen Motorsport- und Simracing-Newsblogs.
-Du fasst EINEN Quellartikel als kurzen deutschen Nachrichtenpost zusammen.
+Du fasst EINEN Quellartikel als deutschen Nachrichtenpost zusammen.
 
 EISERNE REGELN:
-1. Verwende AUSSCHLIESSLICH Informationen aus dem gelieferten Quellmaterial (Titel + Teaser). Dein eigenes Wissen ueber Motorsport ist fuer Fakten TABU - keine Namen, Zahlen, Ergebnisse oder Hintergruende ergaenzen, die nicht im Material stehen.
+1. Verwende AUSSCHLIESSLICH Informationen aus dem gelieferten Quellmaterial (Titel + Teaser + Artikeltext). Dein eigenes Wissen ueber Motorsport ist fuer Fakten TABU - keine Namen, Zahlen, Ergebnisse oder Hintergruende ergaenzen, die nicht im Material stehen.
 2. Wenn das Material zu duenn fuer einen sinnvollen Post ist (unter ~3 belastbaren Aussagen), antworte exakt: {"verwerfen": true}
 3. Keine Spekulation, keine Meinung, keine Superlative. Nuechterner, klarer Nachrichtenstil.
 4. Uebersetze englisches Material sinngetreu ins Deutsche.
-5. Antworte NUR mit einem JSON-Objekt, ohne Text davor oder danach:
-{"titel": "...", "serie": "...", "text": "..."}
+5. Bei Simracing-Themen: die SIMULATIONS-Seite ist die Story (Event-Termine, Setups, BoP, Strecken, Fahrzeuge, Server) - reale Vorbilder nur als Kontext, wenn die Quelle sie nennt.
+6. Antworte NUR mit einem JSON-Objekt, ohne Text davor oder danach:
+{"titel": "...", "serie": "...", "tags": ["...", "..."], "text": "..."}
 - titel: praegnant, max 80 Zeichen, deutsch
 - serie: genau einer dieser Werte: ${ERLAUBTE_SERIEN.join(", ")}
-- text: 80-180 Woerter, deutsch, 1-2 Absaetze (Absaetze mit \\n\\n getrennt). Struktur: Was ist passiert -> relevante Details aus der Quelle.`;
+- tags: 3-6 kurze deutsche Schlagworte, kleingeschrieben (Fahrer, Teams, Strecken, Themen wie "bop", "kalender", "update", "special event", "strafe", "transfer")
+- text: 150-280 Woerter, deutsch, 2-4 Absaetze (mit \\n\\n getrennt), so viel konkreten Inhalt aus der Quelle wie moeglich (Zeiten, Termine, Zahlen, Zitate mit Zuschreibung). Struktur: Was ist passiert -> Details -> Einordnung NUR soweit die Quelle sie hergibt.`;
 
 export async function postSchreiben(artikel) {
   // Zu duennes Material gar nicht erst zum LLM schicken (spart Geld + Fehler).
-  if (artikel.teaser.length < 120) return null;
+  if (artikel.teaser.length < 120 && (artikel.volltext || "").length < 300) return null;
 
   const userPrompt = `QUELLMATERIAL
 Quelle: ${artikel.quelle.name} (Sprache: ${artikel.quelle.sprache})
 Datum: ${artikel.datum}
 Titel: ${artikel.titel}
-Teaser: ${artikel.teaser}`;
+Teaser: ${artikel.teaser}
+Artikeltext: ${artikel.volltext || "(nicht verfuegbar - nur Teaser nutzen)"}`;
 
-  const antwort = await llmFragen(WRITER_SYSTEM, userPrompt, 800);
+  const antwort = await llmFragen(WRITER_SYSTEM, userPrompt, 1200);
   const entwurf = jsonAusAntwort(antwort);
 
   if (!entwurf || entwurf.verwerfen) return null;
   if (!entwurf.titel || !entwurf.text) return null;
+  // Mindest-Substanz: unter ~60 Woertern ist es keine Nachricht, sondern eine
+  // aufgeblasene Ueberschrift — verwerfen (der Writer haette es selbst tun sollen).
+  if (entwurf.text.split(/\s+/).length < 60) return null;
   if (!ERLAUBTE_SERIEN.includes(entwurf.serie)) entwurf.serie = "Sonstiges";
+  // Tags absichern: nur kurze Strings, kleingeschrieben, maximal 8.
+  entwurf.tags = (Array.isArray(entwurf.tags) ? entwurf.tags : [])
+    .filter(function (t) { return typeof t === "string" && t.trim().length > 1 && t.length <= 40; })
+    .map(function (t) { return t.trim().toLowerCase(); })
+    .slice(0, 8);
   return entwurf;
 }
 
@@ -133,6 +144,7 @@ export async function faktenGate(artikel, entwurf) {
   const userPrompt = `QUELLMATERIAL
 Titel: ${artikel.titel}
 Teaser: ${artikel.teaser}
+Artikeltext: ${artikel.volltext || "(nicht verfuegbar)"}
 
 ENTWURF
 Titel: ${entwurf.titel}

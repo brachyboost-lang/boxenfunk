@@ -5,6 +5,13 @@
   "serie": "Sonstiges",
   "text": "Boxenfunk bündelt ab jetzt Nachrichten aus dem Motorsport und dem Simracing in kurzen deutschen Zusammenfassungen: Formel 1 bis Formel 4, WEC, IMSA und ELMS, DTM und GT-Sport, die Nürburgring-Szene — und auf der virtuellen Seite iRacing mit seinen Special Events, Le Mans Ultimate und die Assetto-Corsa-Familie.\n\nDie Beiträge entstehen automatisch aus einer festen Liste seriöser Quellen und werden maschinell gegen den Originaltext geprüft, bevor sie erscheinen. Unter jedem Beitrag ist die Quelle verlinkt — Details dazu stehen auf der Über-Seite. Los geht's.",
   "quellen": [
-    { "name": "Über diese Seite", "url": "../ueber.html" }
+    {
+      "name": "Über diese Seite",
+      "url": "../ueber.html"
+    }
+  ],
+  "tags": [
+    "in eigener sache",
+    "ueber den blog"
   ]
 }

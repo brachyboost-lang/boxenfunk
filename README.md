@@ -6,8 +6,16 @@
 ## Wie es läuft (Überblick)
 
 - **GitHub Action** (`.github/workflows/newsblog.yml`) läuft 4× täglich:
-  Feeds lesen → Posts schreiben (LLM) → Fakten-Gate → `posts/*.json` +
-  neu gebaute `site/` committen.
+  Feeds lesen → Artikel-Volltext holen → Posts schreiben (LLM, mit Tags) →
+  Fakten-Gate → `posts/*.json` + neu gebaute `site/` committen.
+- **Dubletten dreistufig:** gleicher Feed-Eintrag (GUID), ähnlicher Quelltitel,
+  und nach dem Schreiben der deutsche Post-Titel gegen bestehende Posts.
+  Trifft eine Meldung einen bestehenden Post (bis 14 Tage zurück), wird ihre
+  Quelle an den Post angehängt statt ein Duplikat veröffentlicht.
+- **Startseite:** Kategorie-Buttons (Ressorts), Tag-Chips und Suche über
+  Titel/Tags/Inhalt — alles clientseitig, kein Server nötig.
+- **Substanz-Regel:** Posts unter ~60 Wörtern werden verworfen; der Writer
+  bekommt den Artikel-Volltext (bis 4000 Zeichen), nicht nur den Feed-Teaser.
 - **GitHub Pages** deployt `site/` am Ende jedes Laufs (eigener `pages`-Job im
   Workflow — kostenlos, keine Deploy-Limits). Adresse:
   https://brachyboost-lang.github.io/boxenfunk/

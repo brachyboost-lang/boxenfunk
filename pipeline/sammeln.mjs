@@ -68,7 +68,7 @@ export function titelNormalisieren(titel) {
 
 // Jaccard-Aehnlichkeit zweier Wortmengen: |Schnitt| / |Vereinigung|.
 // 1.0 = identisch, 0.0 = kein gemeinsames Wort. Ab 0.5 gilt: gleiche Story.
-function titelAehnlichkeit(normA, normB) {
+export function titelAehnlichkeit(normA, normB) {
   const a = new Set(normA.split(" ").filter(Boolean));
   const b = new Set(normB.split(" ").filter(Boolean));
   if (a.size === 0 || b.size === 0) return 0;
@@ -77,14 +77,18 @@ function titelAehnlichkeit(normA, normB) {
   return schnitt / (a.size + b.size - schnitt);
 }
 
-function istDublette(titelNorm, gesehen, bisherigeKandidaten) {
-  for (const eintrag of Object.values(gesehen.eintraege)) {
-    if (titelAehnlichkeit(titelNorm, eintrag.titelNorm || "") >= 0.5) return true;
+// Liefert den Schluessel des Treffers (z. B. "post:2026-07-08-...") oder null.
+// Wichtig fuer Quellen-Updates: trifft eine neue Meldung auf einen BESTEHENDEN
+// Post (post:-Eintrag), wird sie nicht weggeworfen, sondern als zusaetzliche
+// Quelle an den Post gehaengt (bis das Gedaechtnis nach 14 Tagen vergisst).
+function dubletteFinden(titelNorm, gesehen, bisherigeKandidaten) {
+  for (const [schluessel, eintrag] of Object.entries(gesehen.eintraege)) {
+    if (titelAehnlichkeit(titelNorm, eintrag.titelNorm || "") >= 0.5) return schluessel;
   }
   for (const kandidat of bisherigeKandidaten) {
-    if (titelAehnlichkeit(titelNorm, kandidat.titelNorm) >= 0.5) return true;
+    if (titelAehnlichkeit(titelNorm, kandidat.titelNorm) >= 0.5) return "kandidat";
   }
-  return false;
+  return null;
 }
 
 // Meta-Content ist keine Nachricht: Podcasts, Foto-Galerien, Video-Hinweise
@@ -115,6 +119,7 @@ function htmlEntfernen(text) {
 
 export async function artikelSammeln(quellen, gesehen) {
   const kandidaten = [];
+  const quellenUpdates = [];
   const altersgrenze = Date.now() - MAX_ALTER_STUNDEN * 3600 * 1000;
 
   for (const quelle of quellen) {
@@ -148,10 +153,15 @@ export async function artikelSammeln(quellen, gesehen) {
       }
 
       const titelNorm = titelNormalisieren(titel);
-      if (istDublette(titelNorm, gesehen, kandidaten)) {
+      const treffer = dubletteFinden(titelNorm, gesehen, kandidaten);
+      if (treffer) {
         // Schon bekannt (andere Quelle/aehnlicher Titel) — als gesehen merken,
         // damit sie nicht bei jedem Lauf erneut geprueft wird.
         gesehen.eintraege[guid] = { titelNorm, datum: new Date().toISOString() };
+        // Trifft sie einen veroeffentlichten Post: als Zusatzquelle vormerken.
+        if (treffer.startsWith("post:") && item.link) {
+          quellenUpdates.push({ slug: treffer.slice(5), quellenName: quelle.name, url: item.link });
+        }
         continue;
       }
 
@@ -169,5 +179,39 @@ export async function artikelSammeln(quellen, gesehen) {
 
   // Neueste zuerst — wenn der Kostendeckel greift, gewinnen die frischesten.
   kandidaten.sort(function (a, b) { return new Date(b.datum) - new Date(a.datum); });
-  return kandidaten;
+  return { kandidaten, quellenUpdates };
+}
+
+// ---------------------------------------------------------------------------
+// Artikel-Volltext holen: Feed-Teaser sind oft duenn (2-3 Saetze). Fuer
+// gehaltvolle Posts laden wir die Artikelseite und ziehen den Haupttext raus.
+// Heuristik statt Perfektion: <article>-Bereich bevorzugen, sonst ganze Seite,
+// dann alle laengeren <p>-Absaetze einsammeln. Scheitert das (Paywall,
+// Bot-Schutz, Timeout): leer zurueck — der Writer arbeitet dann mit dem Teaser.
+// ---------------------------------------------------------------------------
+
+export async function volltextHolen(url) {
+  if (!url) return "";
+  try {
+    const antwort = await fetch(url, {
+      headers: { "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36" },
+      redirect: "follow",
+      signal: AbortSignal.timeout(15000)
+    });
+    if (!antwort.ok) return "";
+    const html = await antwort.text();
+
+    let bereich = (html.match(/<article[\s\S]*?<\/article>/i) || [html])[0];
+    bereich = bereich
+      .replace(/<script[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[\s\S]*?<\/style>/gi, "");
+
+    const absaetze = [...bereich.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/gi)]
+      .map(function (m) { return htmlEntfernen(m[1]); })
+      .filter(function (t) { return t.length > 60; });   // Menue-/Footer-Kram raus
+
+    return absaetze.join("\n").slice(0, 4000);   // Deckel: haelt Prompts bezahlbar
+  } catch {
+    return "";
+  }
 }
