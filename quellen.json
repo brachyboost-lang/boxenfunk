@@ -66,21 +66,53 @@
       "url": "https://traxion.gg/feed/",
       "ressort": "simracing",
       "sprache": "en",
-      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "rennsport", "esports", "special event"]
+      "stichwoerter": [
+        "iracing",
+        "le mans ultimate",
+        "assetto",
+        "acc",
+        "rennsport",
+        "esports",
+        "special event"
+      ]
     },
     {
       "name": "Boxthislap",
       "url": "https://boxthislap.org/feed/",
       "ressort": "simracing",
       "sprache": "en",
-      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "kunos"]
+      "stichwoerter": [
+        "iracing",
+        "le mans ultimate",
+        "assetto",
+        "acc",
+        "kunos"
+      ]
     },
     {
       "name": "bsimracing",
       "url": "https://www.bsimracing.com/feed/",
       "ressort": "simracing",
       "sprache": "en",
-      "stichwoerter": ["iracing", "le mans ultimate", "assetto", "acc", "kunos"]
+      "stichwoerter": [
+        "iracing",
+        "le mans ultimate",
+        "assetto",
+        "acc",
+        "kunos"
+      ]
+    },
+    {
+      "name": "Assetto Corsa (offiziell)",
+      "url": "https://www.assettocorsa.gg/feed/",
+      "ressort": "simracing",
+      "sprache": "en"
+    },
+    {
+      "name": "Le Mans Ultimate (offiziell)",
+      "url": "https://lemansultimate.com/feed/",
+      "ressort": "simracing",
+      "sprache": "en"
     }
   ],
   "_todo_keine_feeds_gefunden": [
@@ -88,7 +120,8 @@
     "RCN / rcn.de (kein RSS auffindbar)",
     "ADAC GT Masters / adac-motorsport.de (kein RSS auffindbar)",
     "German Time Attack Masters (nur Social Media)",
-    "Overtake.gg (Feed hinter Bot-Schutz)",
-    "Porsche Carrera Cup (offizielle Quelle pruefen)"
+    "Porsche Carrera Cup (offizielle Quelle pruefen)",
+    "forums.iracing.com: komplett hinter Login (iRacing Authentication) - kein oeffentlicher RSS. Special-Events/BoP-Details kommen ueber Traxion/Boxthislap/bsimracing.",
+    "Overtake.gg: Feed hinter Bot-Schutz (Cloudflare)"
   ]
 }

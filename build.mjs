@@ -93,6 +93,20 @@ function seite(titel, inhalt, tiefe) {
   .quellen { margin-top: 18px; padding-top: 12px; border-top: 1px solid #eee; font-size: 13px; color: #666; }
   .quellen a { color: #0057b8; }
   .transparenz { font-size: 12px; color: #999; margin-top: 8px; }
+  .auszug { margin: 8px 0 6px; font-size: 14px; color: #555; }
+  .tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { border: 1px solid #ddd; background: #fafafa; color: #555; font-size: 12px;
+         padding: 2px 10px; border-radius: 999px; cursor: pointer; }
+  .tag:hover { border-color: #4f46e5; color: #4f46e5; }
+  article .tag { cursor: default; }
+  article .tag:hover { border-color: #ddd; color: #555; }
+  .filter input { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 15px;
+                  border: 2px solid #d0d0d0; border-radius: 8px; outline: none; }
+  .filter input:focus { border-color: #4f46e5; }
+  .ressorts { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .rbtn { border: 2px solid var(--rf); color: var(--rf); background: #fff; font-size: 13px;
+          font-weight: 600; padding: 4px 14px; border-radius: 999px; cursor: pointer; }
+  .rbtn.aktiv { background: var(--rf); color: #fff; }
   footer { background: #111; color: #999; font-size: 13px; padding: 20px 16px; }
   footer a { color: #ccc; }
   .zurueck { font-size: 14px; }
@@ -143,16 +157,83 @@ export function seiteBauen() {
   fs.rmSync(path.join(ZIEL, "posts"), { recursive: true, force: true });
   fs.mkdirSync(path.join(ZIEL, "posts"), { recursive: true });
 
-  // --- Startseite: Karten-Liste ---
+  // --- Startseite: Filterleiste + Karten-Liste + Suche -----------------------
+  // Filter und Suche laufen komplett im Browser (statische Seite, kein Server):
+  // jede Karte traegt data-ressort und data-suche (Titel+Tags+Text, klein-
+  // geschrieben); das Skript unten blendet Karten passend ein/aus.
   const karten = posts.map(function (post) {
-    return `<div class="karte">
+    const tags = post.tags || [];
+    const suchtext = (post.titel + " " + tags.join(" ") + " " + post.serie + " " + post.text)
+      .toLowerCase().replace(/\s+/g, " ");
+    const tagChips = tags.map(function (t) {
+      return `<button class="tag" data-tag="${htmlSichern(t)}">${htmlSichern(t)}</button>`;
+    }).join("");
+    const auszug = post.text.replace(/\n+/g, " ").slice(0, 160);
+    return `<div class="karte" data-ressort="${htmlSichern(post.ressort)}" data-suche="${htmlSichern(suchtext)}">
   ${badge(post.ressort)}<span class="serie">${htmlSichern(post.serie)}</span>
   <h2><a href="posts/${post.slug}.html">${htmlSichern(post.titel)}</a></h2>
   <div class="datum">${datumDeutsch(post.datum)}</div>
+  <p class="auszug">${htmlSichern(auszug)}…</p>
+  <div class="tags">${tagChips}</div>
 </div>`;
   }).join("\n");
+
+  const ressortKnoepfe = Object.entries(RESSORTS).map(function ([schluessel, r]) {
+    return `<button class="rbtn" data-ressort="${schluessel}" style="--rf:${r.farbe}">${r.name}</button>`;
+  }).join("");
+
+  const filterLeiste = `<div class="filter karte">
+  <input id="suche" type="search" placeholder="Suchen: Titel, Tags, Inhalt …" autocomplete="off">
+  <div class="ressorts">
+    <button class="rbtn aktiv" data-ressort="alle" style="--rf:#111">Alle</button>
+    ${ressortKnoepfe}
+  </div>
+</div>
+<p id="keineTreffer" style="display:none;text-align:center;color:#888">Nichts gefunden — Suche oder Filter anpassen.</p>`;
+
+  const filterSkript = `<script>
+// Filter + Suche: rein clientseitig. "aktivRessort" haelt den gedrueckten
+// Kategorie-Knopf, das Suchfeld filtert zusaetzlich ueber data-suche.
+var aktivRessort = "alle";
+var sucheFeld = document.getElementById("suche");
+var karten = document.querySelectorAll(".karte[data-ressort]");
+
+function filtern() {
+  var frage = sucheFeld.value.toLowerCase().trim();
+  var sichtbar = 0;
+  karten.forEach(function (karte) {
+    var passtRessort = aktivRessort === "alle" || karte.dataset.ressort === aktivRessort;
+    var passtSuche = !frage || karte.dataset.suche.indexOf(frage) !== -1;
+    var zeigen = passtRessort && passtSuche;
+    karte.style.display = zeigen ? "" : "none";
+    if (zeigen) sichtbar++;
+  });
+  document.getElementById("keineTreffer").style.display = sichtbar ? "none" : "block";
+}
+
+sucheFeld.addEventListener("input", filtern);
+
+document.querySelectorAll(".rbtn").forEach(function (knopf) {
+  knopf.addEventListener("click", function () {
+    document.querySelectorAll(".rbtn").forEach(function (k) { k.classList.remove("aktiv"); });
+    knopf.classList.add("aktiv");
+    aktivRessort = knopf.dataset.ressort;
+    filtern();
+  });
+});
+
+// Klick auf einen Tag-Chip uebernimmt den Tag in die Suche.
+document.querySelectorAll(".tag").forEach(function (chip) {
+  chip.addEventListener("click", function () {
+    sucheFeld.value = chip.dataset.tag;
+    filtern();
+    sucheFeld.focus();
+  });
+});
+</script>`;
+
   const startInhalt = posts.length
-    ? karten
+    ? filterLeiste + "\n" + karten + "\n" + filterSkript
     : `<div class="karte"><p>Noch keine Beiträge — die Pipeline läuft an.</p></div>`;
   fs.writeFileSync(path.join(ZIEL, "index.html"), seite("Aktuell", startInhalt, 0));
 
@@ -161,12 +242,16 @@ export function seiteBauen() {
     const quellenLinks = (post.quellen || []).map(function (q) {
       return `<a href="${htmlSichern(q.url)}" rel="noopener" target="_blank">${htmlSichern(q.name)}</a>`;
     }).join(" · ");
+    const postTags = (post.tags || []).map(function (t) {
+      return `<span class="tag">${htmlSichern(t)}</span>`;
+    }).join("");
     const inhalt = `<p class="zurueck"><a href="../index.html">← Alle Beiträge</a></p>
 <article class="karte">
   ${badge(post.ressort)}<span class="serie">${htmlSichern(post.serie)}</span>
   <h2>${htmlSichern(post.titel)}</h2>
   <div class="datum">${datumDeutsch(post.datum)}</div>
   ${textZuHtml(post.text)}
+  ${postTags ? `<div class="tags">${postTags}</div>` : ""}
   <div class="quellen"><strong>Quellen:</strong> ${quellenLinks}</div>
   <div class="transparenz">Automatisch kuratierte Zusammenfassung des verlinkten Originalartikels.</div>
 </article>`;
