@@ -1,0 +1,20 @@
+{
+  "titel": "Aston Martin setzt auf KI zur Fahrzeugentwicklung in der F1",
+  "datum": "2026-07-11T06:29:44.283Z",
+  "ressort": "formel",
+  "serie": "F1",
+  "tags": [
+    "ki",
+    "aston martin",
+    "entwicklung",
+    "engineering",
+    "adrian newey"
+  ],
+  "text": "In der Formel 1 wird Künstliche Intelligenz (KI) zunehmend zur Effizienzsteigerung in der Fahrzeugentwicklung eingesetzt. Adrian Newey, der Konstrukteur von Aston Martin, erläutert, dass das Team KI-Systeme in zwei Hauptbereichen nutzt: Business und Engineering. Während die betriebswirtschaftliche Anwendung interne Abläufe optimiert, konzentriert sich Newey auf die technische Seite, insbesondere auf die Simulation.\n\nNewey hebt hervor, dass die KI in der Formel 1 nicht mit verbrauchernahen Tools wie ChatGPT vergleichbar ist. Die Technologie basiert auf hochspezialisierten Anwendungen, die nicht auf Internetdaten angewiesen sind. Stattdessen werden die Systeme mit internen Daten aus Windkanal, CFD und Rennstrecke gefüttert, um Muster und Trends zu erkennen, die für Menschen schwer zu erfassen sind.\n\nDer Hauptvorteil der KI liegt in ihrer Verarbeitungsgeschwindigkeit, die es ermöglicht, in Minuten Analysen durchzuführen, für die ein Mensch deutlich länger benötigen würde. Dennoch gibt es Herausforderungen, da aktuelle KI-Systeme an der Grenze der menschlichen Intuition stoßen, die für die Forschung und Entwicklung weiterhin entscheidend ist.",
+  "quellen": [
+    {
+      "name": "Formel1.de",
+      "url": "https://www.formel1.de/nc/148066"
+    }
+  ]
+}
