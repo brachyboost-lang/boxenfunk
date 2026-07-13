@@ -264,6 +264,38 @@
       "titelNorm": "2026 paulo saisonsieg zweiter",
       "datum": "2026-07-12T23:12:55.965Z"
     },
+    "3449580": {
+      "titelNorm": "george mercedes regenrennen russell unberechenbaren warnt",
+      "datum": "2026-07-13T13:44:44.479Z"
+    },
+    "3449585": {
+      "titelNorm": "beim coulthard fordert langweilig revolution safety",
+      "datum": "2026-07-13T13:44:44.478Z"
+    },
+    "3449588": {
+      "titelNorm": "angebot aston christian horner konkretes martin medien melden",
+      "datum": "2026-07-13T13:44:44.476Z"
+    },
+    "3449591": {
+      "titelNorm": "2027 fahrer formel saison teams übersicht",
+      "datum": "2026-07-13T13:44:44.475Z"
+    },
+    "3449596": {
+      "titelNorm": "crash fünf joker linde nach nutzen teams test zurück",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "3449598": {
+      "titelNorm": "besser bull bulls derzeit funktioniert racing warum",
+      "datum": "2026-07-13T13:44:44.473Z"
+    },
+    "3449603": {
+      "titelNorm": "antonelli ausgeglichen george jetzt kimi mercedes pech russell",
+      "datum": "2026-07-13T13:44:44.472Z"
+    },
+    "3449608": {
+      "titelNorm": "alonso dann formel haben leistung warnt weniger",
+      "datum": "2026-07-13T13:44:44.470Z"
+    },
     "post:2026-07-08-gt-world-challenge-asia-startet-am-fuji-speedway": {
       "titelNorm": "asia fuji gears powertour weekend world",
       "datum": "2026-07-08T01:57:08.921Z",
@@ -1211,6 +1243,103 @@
     "https://sportscar365.com/?p=149230": {
       "titelNorm": "cadillacs halfway jota leads suffer",
       "datum": "2026-07-12T23:12:55.965Z"
+    },
+    "https://www.dailysportscar.com/?p=512644": {
+      "titelNorm": "back bounces brichacek ctmp race",
+      "datum": "2026-07-13T13:44:47.378Z"
+    },
+    "post:2026-07-13-alonso-warnt-vor-energieproblemen-in-spa": {
+      "titelNorm": "alonso dann formel haben leistung warnt weniger",
+      "de": "alonso energieproblemen warnt",
+      "datum": "2026-07-13T13:44:59.832Z"
+    },
+    "post:2026-07-13-mercedes-amg-feiert-1-000-sieg-im-kundenrennsport": {
+      "titelNorm": "000th claims customer mercedes program racing",
+      "de": "feiert kundenrennsport mercedes sieg",
+      "datum": "2026-07-13T13:45:06.133Z"
+    },
+    "post:2026-07-13-russell-und-antonelli-pech-und-punkte-in-der-f1-saison-2026": {
+      "titelNorm": "antonelli ausgeglichen george kimi mercedes pech russell",
+      "de": "2026 antonelli pech punkte russell saison",
+      "datum": "2026-07-13T13:45:15.785Z"
+    },
+    "post:2026-07-13-aitken-sao-paulo-wochenende-fuer-jota-cadillacs-bitter-suess": {
+      "titelNorm": "aitken bittersweet cadillacs jota paulo weekend",
+      "de": "aitken bitter cadillacs jota paulo wochenende",
+      "datum": "2026-07-13T13:45:30.291Z"
+    },
+    "post:2026-07-13-wec-kalender-2026-europa-statt-nahost": {
+      "titelNorm": "conflict continues east europe finish middle season",
+      "de": "2026 europa kalender nahost statt",
+      "datum": "2026-07-13T13:45:39.062Z"
+    },
+    "news-148080": {
+      "titelNorm": "alonso dann formel haben leistung warnt weniger",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149342": {
+      "titelNorm": "000th claims customer mercedes program racing",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148079": {
+      "titelNorm": "antonelli ausgeglichen george kimi mercedes pech russell",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149312": {
+      "titelNorm": "ctmp notebook post race",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149333": {
+      "titelNorm": "aitken bittersweet cadillacs jota paulo weekend",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://www.dailysportscar.com/?p=512627": {
+      "titelNorm": "conflict continues east europe finish middle season",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://www.dailysportscar.com/?p=512676": {
+      "titelNorm": "festival goodwood notebook speed",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148078": {
+      "titelNorm": "besser bull bulls derzeit funktioniert racing warum",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148077": {
+      "titelNorm": "2027 fahrer formel saison teams übersicht",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148076": {
+      "titelNorm": "angebot aston christian horner konkretes martin medien melden",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148075": {
+      "titelNorm": "beim coulthard fordert langweilig revolution safety",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149291": {
+      "titelNorm": "heinrich origine porsche return series sets",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "news-148074": {
+      "titelNorm": "george mercedes regenrennen russell unberechenbaren warnt",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://www.dailysportscar.com/?p=512625": {
+      "titelNorm": "notes paulo post race",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149288": {
+      "titelNorm": "amazing barnicoat call hails lane",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149283": {
+      "titelNorm": "magnussen paulo stint victory vosse",
+      "datum": "2026-07-13T13:45:39.063Z"
+    },
+    "https://sportscar365.com/?p=149274": {
+      "titelNorm": "comeback cool ctmp dillmann story",
+      "datum": "2026-07-13T13:45:39.063Z"
     }
   }
 }
