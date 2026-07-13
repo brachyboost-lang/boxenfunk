@@ -1,0 +1,20 @@
+{
+  "titel": "Red Bull hat Probleme mit dem 'Macarena'-Flügel",
+  "datum": "2026-07-13T18:14:06.413Z",
+  "ressort": "formel",
+  "serie": "F1",
+  "tags": [
+    "flügel",
+    "red bull",
+    "ferrari",
+    "technik",
+    "sicherheit"
+  ],
+  "text": "Vor dem Großen Preis von Belgien gibt es weiterhin Diskussionen um den sogenannten 'Macarena'-Flügel. Red Bull hat Probleme mit dem drehbaren Heckflügel, was zuletzt dazu führte, dass Max Verstappen in Österreich und Silverstone abflog. Der Automobil-Weltverband FIA hat eine Untersuchung angekündigt, da die Sicherheit der Fahrer auf dem Spiel steht.\n\nRed Bull plant, in Belgien möglicherweise auf den rotierenden Heckflügel zu verzichten und hat eine detaillierte Fehleranalyse angekündigt. Im Gegensatz dazu funktioniert der Heckflügel von Ferrari bislang problemlos. Beide Teams setzen auf einen aktiven Flügel, dessen Element rotiert, jedoch unterscheiden sich die Konzepte in mehreren Details. Während Ferrari den Aktuator an den seitlichen Endplatten platziert hat, nutzt Red Bull einen zentralen Verstellmechanismus.\n\nEin wesentlicher Unterschied ist die Drehrichtung und der Drehwinkel: Der Ferrari-Flügel dreht sich gegen den Uhrzeigersinn um bis zu 225 Grad, während der Red-Bull-Flügel im Uhrzeigersinn um etwa 160 Grad rotiert. Diese Unterschiede führen zu einer Hysterese, die bei Red Bull zu einem späten Strömungsabriss und damit zu einer Verzögerung des aerodynamischen Abtriebs führt.",
+  "quellen": [
+    {
+      "name": "Formel1.de",
+      "url": "https://www.formel1.de/nc/148083"
+    }
+  ]
+}
