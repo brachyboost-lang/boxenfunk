@@ -1,0 +1,20 @@
+{
+  "titel": "iRacing für vier Stunden offline wegen Sicherheitsproblem",
+  "datum": "2026-07-23T12:06:41.283Z",
+  "ressort": "simracing",
+  "serie": "iRacing",
+  "tags": [
+    "sicherheit",
+    "downtime",
+    "passwort",
+    "systemupdate",
+    "community"
+  ],
+  "text": "Am 22. Juli war iRacing für etwa vier Stunden offline. Das Personal gab bekannt, dass der Dienst aufgrund eines potenziellen Sicherheitsproblems abgeschaltet wurde. Es wurde bestätigt, dass die Benutzerdaten nicht kompromittiert wurden und Passwörter sowie Daten während des Vorfalls sicher blieben.\n\nIn den kommenden Wochen plant iRacing, zusätzliche Maßnahmen zu ergreifen, um die Systeme weiter abzusichern. Die Nutzer werden gebeten, zu einem späteren Zeitpunkt ihr Passwort zurückzusetzen. Aktuell ist jedoch keine sofortige Handlung erforderlich. Die genauen Details des Vorfalls sind unklar, und es gibt keine Informationen darüber, wie das Problem entdeckt wurde oder wie lange es möglicherweise bereits bestand.\n\nDie vierstündige Ausfallzeit während der Hauptrennzeiten stellt eine erhebliche Unannehmlichkeit für die Sim-Racing-Community dar, da die Nutzer auf eine stabile Verbindung angewiesen sind, um ihre Rennen zu fahren. Die Ankündigung deutet darauf hin, dass die Nutzer auf eine Passwortänderung vorbereitet sein sollten, um die Sicherheit ihrer Konten zu gewährleisten.",
+  "quellen": [
+    {
+      "name": "Boxthislap",
+      "url": "https://boxthislap.org/iracing-takes-service-offline-for-four-hours-to-investigate-a-security-issue/"
+    }
+  ]
+}
