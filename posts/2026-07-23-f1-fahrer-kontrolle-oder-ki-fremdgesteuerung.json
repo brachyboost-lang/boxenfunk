@@ -1,0 +1,20 @@
+{
+  "titel": "F1-Fahrer: Kontrolle oder KI-Fremdgesteuerung?",
+  "datum": "2026-07-23T06:43:09.602Z",
+  "ressort": "formel",
+  "serie": "F1",
+  "tags": [
+    "fahrer",
+    "teams",
+    "technik",
+    "strategie",
+    "motoren"
+  ],
+  "text": "In der Formel 1 wird diskutiert, ob die Fahrer tatsächlich die Kontrolle über ihre Autos haben oder ob sie von KI-Systemen fremdgesteuert werden. Andrea Stella von McLaren äußerte, dass die Teams oft nicht verstehen, warum es zu Abweichungen in der Leistung kommt, die nicht den zugrunde liegenden Parametern entsprechen. \n\nEin Beispiel dafür ist Oscar Piastri, der auf der Geraden Zeit auf Lando Norris verlor, ohne zu wissen, warum. Stella erklärte, dass das Phänomen mit den \"selbstlernenden Elementen\" der Antriebseinheit zusammenhängt. Diese Systeme nutzen vorausschauende Algorithmen, um die optimale Strategie für die Energieabgabe zu berechnen und passen sich dynamisch an die Eingaben des Fahrers an. \n\nDie Komplexität der Motoren führt dazu, dass selbst kleine Änderungen im Fahrverhalten große Auswirkungen auf die Leistung haben können. Isack Hadjar erlebte dies im Q3, als er versuchte, Max Verstappen Windschatten zu spenden. Die Software der Antriebseinheit war verwirrt, was zu unerwarteten Rückmeldungen führte. Hadjar erklärte, dass es schwierig sei, vorherzusagen, was der Motor im nächsten Moment liefern wird.",
+  "quellen": [
+    {
+      "name": "Formel1.de",
+      "url": "https://www.formel1.de/nc/148228"
+    }
+  ]
+}
