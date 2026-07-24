@@ -1,0 +1,20 @@
+{
+  "titel": "Assetto Corsa EVO Update 0.8.1 verbessert Stabilität und KI",
+  "datum": "2026-07-24T18:43:41.252Z",
+  "ressort": "simracing",
+  "serie": "Assetto Corsa",
+  "tags": [
+    "update",
+    "stabilität",
+    "multiplayer",
+    "ai",
+    "modding"
+  ],
+  "text": "Assetto Corsa EVO hat das Update 0.8.1 veröffentlicht, das sich auf die Verbesserung der Stabilität des Simulators, das Verhalten der künstlichen Intelligenz (KI) und die Multiplayer-Infrastruktur konzentriert. Dieses Update führt keine neuen Fahrzeuge oder Strecken ein, behebt jedoch zahlreiche von der Community gemeldete Probleme und liefert wichtige Verfeinerungen für Spieler und Serveradministratoren.\n\nEin bedeutender Schwerpunkt des Updates liegt auf dem KI-Verhalten während der Boxenstopps. Die Entwickler haben das System, das für die Erstellung und Zuweisung von Boxenpositionen für KI-gesteuerte Fahrzeuge verantwortlich ist, korrigiert. Zudem wurde ein Fehler behoben, der Spieler betraf, die die Startassistenzfunktion nutzen. Unter bestimmten Bedingungen konnte sowohl das Fahrzeug als auch das Dashboard während des Rennstarts unresponsive werden.\n\nZusätzlich zu den technischen Verbesserungen wurden auch grafische Updates implementiert, die die Gesamtpräsentation des Spiels verbessern. Dazu gehört eine weitere Reduzierung des Baum-Pop-Ins und spezifische Korrekturen für die Texturen in Kyalami. Das Update optimiert auch das Garage-Management und verbessert die Stabilität der Online-Rennen durch Backend-Verbesserungen.",
+  "quellen": [
+    {
+      "name": "Boxthislap",
+      "url": "https://boxthislap.org/assetto-corsa-evo-update-0-8-1-released-ai-multiplayer-stability-improvements/"
+    }
+  ]
+}
