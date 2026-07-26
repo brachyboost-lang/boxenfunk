@@ -24,18 +24,6 @@
       "titelNorm": "2026 aktuelle aller piloten stand verwarnungen überblick",
       "datum": "2026-07-25T11:38:59.211Z"
     },
-    "3449559": {
-      "titelNorm": "aerodynamischen aktuellen formel schlachtfelder technik",
-      "datum": "2026-07-12T11:34:48.822Z"
-    },
-    "3449562": {
-      "titelNorm": "außer gelang marken noch siege thiim verschiedenen",
-      "datum": "2026-07-12T11:35:15.871Z"
-    },
-    "3449566": {
-      "titelNorm": "echte eine ferrari gefahr george jetzt russell warnt",
-      "datum": "2026-07-12T11:34:48.822Z"
-    },
     "3449569": {
       "titelNorm": "bringt erhoffte leistung nicht nächste pleite update williams",
       "datum": "2026-07-12T17:29:27.257Z"
@@ -952,6 +940,22 @@
       "titelNorm": "abzugeben antonelli budapest falsche training wahl",
       "datum": "2026-07-26T07:07:07.383Z"
     },
+    "3450456": {
+      "titelNorm": "erneut oschersleben pleite pole preining qualifying thiim",
+      "datum": "2026-07-26T11:39:39.443Z"
+    },
+    "3450458": {
+      "titelNorm": "asphalt bröckel gemacht richtig richtig schlecht sorgt ärger",
+      "datum": "2026-07-26T11:39:38.716Z"
+    },
+    "3450461": {
+      "titelNorm": "aston bearman eigentlich gegen haas hadert kämpfen martin nicht sollte",
+      "datum": "2026-07-26T11:39:38.712Z"
+    },
+    "3450464": {
+      "titelNorm": "bahrain ersatz findet formel jahren malaysia nach neun zurück",
+      "datum": "2026-07-26T11:39:38.707Z"
+    },
     "4901183": {
       "titelNorm": "2026 aktuelle formel francorchamps prognose wetter",
       "datum": "2026-07-14T06:29:45.545Z"
@@ -959,24 +963,6 @@
     "4907224": {
       "titelNorm": "alle formel infos live stream übertragung",
       "datum": "2026-07-14T11:48:38.785Z"
-    },
-    "post:2026-07-12-george-russell-warnt-ferrari-ist-jetzt-eine-echte-gefahr": {
-      "titelNorm": "echte eine ferrari gefahr george jetzt russell warnt",
-      "de": "echte eine ferrari gefahr george jetzt russell warnt",
-      "datum": "2026-07-12T11:35:03.129Z"
-    },
-    "post:2026-07-12-nicki-thiim-siegt-mit-aston-martin-auf-dem-norisring": {
-      "titelNorm": "außer gelang marken noch siege thiim verschiedenen",
-      "de": "aston martin nicki norisring siegt thiim",
-      "datum": "2026-07-12T11:35:09.159Z"
-    },
-    "news-148072": {
-      "titelNorm": "echte eine ferrari gefahr george jetzt russell warnt",
-      "datum": "2026-07-12T11:35:15.871Z"
-    },
-    "news-148071": {
-      "titelNorm": "aerodynamischen aktuellen formel schlachtfelder technik",
-      "datum": "2026-07-12T11:35:15.871Z"
     },
     "post:2026-07-12-stevens-fuehrt-cadillac-nach-erster-stunde-in-interlagos": {
       "titelNorm": "after ahead cadillac first hour jota keeps stevens",
@@ -3261,6 +3247,54 @@
     "news-148282": {
       "titelNorm": "formel geld kritisiert lando norris sport wichtiger",
       "datum": "2026-07-26T07:07:36.441Z"
+    },
+    "post:2026-07-26-formel-1-kehrt-nach-malaysia-zurueck-ersatz-fuer-bahrain": {
+      "titelNorm": "bahrain ersatz findet formel jahren malaysia nach neun zurück",
+      "de": "bahrain ersatz formel kehrt malaysia nach zurück",
+      "datum": "2026-07-26T11:40:03.651Z"
+    },
+    "post:2026-07-26-bearman-unzufrieden-haas-sollte-nicht-gegen-aston-martin-kae": {
+      "titelNorm": "aston bearman eigentlich gegen haas hadert kämpfen martin nicht sollte",
+      "de": "aston bearman gegen haas kämpfen martin nicht sollte unzufrieden",
+      "datum": "2026-07-26T11:40:10.712Z"
+    },
+    "post:2026-07-26-preining-siegt-im-dtm-rennen-in-oschersleben": {
+      "titelNorm": "opener oschersleben preining triumphant",
+      "de": "oschersleben preining rennen siegt",
+      "datum": "2026-07-26T11:40:29.637Z"
+    },
+    "post:2026-07-26-probleme-am-hungaroring-broeckel-asphalt-sorgt-fuer-unmut": {
+      "titelNorm": "asphalt bröckel gemacht richtig richtig schlecht sorgt ärger",
+      "de": "asphalt bröckel hungaroring probleme sorgt unmut",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "https://www.dailysportscar.com/?p=513397": {
+      "titelNorm": "australia hidden mclaren sweep valley weekend",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "news-148288": {
+      "titelNorm": "bahrain ersatz findet formel jahren malaysia nach neun zurück",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "news-148287": {
+      "titelNorm": "aston bearman eigentlich gegen haas hadert kämpfen martin nicht sollte",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "https://www.dailysportscar.com/?p=513387": {
+      "titelNorm": "audis australia electrical gtwc kelso round take team wins",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "https://www.dailysportscar.com/?p=513381": {
+      "titelNorm": "opener oschersleben preining triumphant",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "news-148286": {
+      "titelNorm": "asphalt bröckel gemacht richtig richtig schlecht sorgt ärger",
+      "datum": "2026-07-26T11:40:37.450Z"
+    },
+    "https://boxthislap.org/?p=46351": {
+      "titelNorm": "changed event joker mans paywall ultimate what",
+      "datum": "2026-07-26T11:40:37.450Z"
     }
   }
 }
