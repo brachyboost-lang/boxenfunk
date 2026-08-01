@@ -4,10 +4,6 @@
       "titelNorm": "francorchamps rekordpublikum zuschauer",
       "datum": "2026-07-20T07:35:19.212Z"
     },
-    "3442800": {
-      "titelNorm": "2026 formel qualifying rennduelle saison sprint",
-      "datum": "2026-07-18T17:25:56.267Z"
-    },
     "3444367": {
       "titelNorm": "2026 formel grand mischungen prix reifen welche welchem",
       "datum": "2026-07-28T23:48:08.580Z"
@@ -15,50 +11,6 @@
     "3448214": {
       "titelNorm": "2026 aktuelle aller piloten stand verwarnungen überblick",
       "datum": "2026-07-25T11:38:59.211Z"
-    },
-    "3449893": {
-      "titelNorm": "erklärt gasly hamilton lewis pierre unfällen",
-      "datum": "2026-07-18T17:25:56.273Z"
-    },
-    "3449900": {
-      "titelNorm": "antonelli bleibt bull doch eiskalt quali spiele spielt windschatten",
-      "datum": "2026-07-18T17:25:56.271Z"
-    },
-    "3449903": {
-      "titelNorm": "erste startreihe verstappen windschatten",
-      "datum": "2026-07-18T17:25:56.269Z"
-    },
-    "3449906": {
-      "titelNorm": "antonelli eine george halbe kimi klatsche nächste russell sekunde verliert",
-      "datum": "2026-07-18T17:25:56.266Z"
-    },
-    "3449909": {
-      "titelNorm": "audi fehler hülkenberg nicht nico technische",
-      "datum": "2026-07-18T17:25:56.263Z"
-    },
-    "3449912": {
-      "titelNorm": "falsche flagge frustriert gegen gelbe kostet leclerc nach platz russell",
-      "datum": "2026-07-18T23:13:59.362Z"
-    },
-    "3449915": {
-      "titelNorm": "abtrieb auto keine kurve mehr pouhon verstappen",
-      "datum": "2026-07-18T23:13:59.360Z"
-    },
-    "3449918": {
-      "titelNorm": "auto fühlte großartig hadert hamilton lewis nach sich unfall vorher",
-      "datum": "2026-07-18T23:13:59.358Z"
-    },
-    "3449921": {
-      "titelNorm": "acht audi belgien bortoleto fahrer gabriel plötzlich startplatz",
-      "datum": "2026-07-18T23:13:59.355Z"
-    },
-    "3449924": {
-      "titelNorm": "antonelli mega nach norris pole schon",
-      "datum": "2026-07-18T23:13:59.353Z"
-    },
-    "3449927": {
-      "titelNorm": "auto bearman esteban langsamer mein ocon oliver",
-      "datum": "2026-07-18T23:13:59.350Z"
     },
     "3449934": {
       "titelNorm": "beim colapinto entgegen fiebert finale franco nervöser rennen",
@@ -912,6 +864,10 @@
       "titelNorm": "erklärt flügel geht macarena mclaren teamchef weiter",
       "datum": "2026-08-01T12:43:37.043Z"
     },
+    "3450783": {
+      "titelNorm": "alarm formel kompliziert moment schlägt teamchef vieles",
+      "datum": "2026-08-01T23:26:50.332Z"
+    },
     "10347796": {
       "titelNorm": "erklärt formel sommerpause verboten",
       "datum": "2026-07-27T13:57:16.033Z"
@@ -919,114 +875,6 @@
     "10843130": {
       "titelNorm": "frage ladeeffizienz neuen nicht performance warum wird zählen",
       "datum": "2026-07-30T17:54:33.873Z"
-    },
-    "result-quali-1159-2026": {
-      "titelNorm": "belgien ergebnis großer preis qualifying update",
-      "datum": "2026-07-18T17:25:56.116Z"
-    },
-    "post:2026-07-18-technische-probleme-huelkenberg-startet-nur-als-zwoelfter": {
-      "titelNorm": "audi fehler hülkenberg nicht nico technische",
-      "de": "hülkenberg probleme startet technische zwölfter",
-      "datum": "2026-07-18T17:26:07.872Z"
-    },
-    "post:2026-07-18-aktueller-stand-der-qualifying-und-rennduelle-2026": {
-      "titelNorm": "2026 formel qualifying rennduelle saison sprint",
-      "de": "2026 aktueller qualifying rennduelle stand",
-      "datum": "2026-07-18T17:26:20.362Z"
-    },
-    "post:2026-07-18-max-verstappen-startet-von-position-zwei-in-spa": {
-      "titelNorm": "erste startreihe verstappen windschatten",
-      "de": "position startet verstappen zwei",
-      "datum": "2026-07-18T17:26:28.427Z"
-    },
-    "post:2026-07-18-kimi-antonelli-holt-pole-in-belgien-red-bull-mit-windschatte": {
-      "titelNorm": "antonelli bleibt bull doch eiskalt quali spiele spielt windschatten",
-      "de": "antonelli belgien bull holt kimi pole taktik windschatten",
-      "datum": "2026-07-18T17:26:35.167Z"
-    },
-    "post:2026-07-18-unfaelle-von-gasly-und-hamilton-in-spa-erklaert": {
-      "titelNorm": "erklärt gasly hamilton lewis pierre unfällen",
-      "de": "erklärt gasly hamilton unfälle",
-      "datum": "2026-07-18T17:26:42.300Z"
-    },
-    "news-148159": {
-      "titelNorm": "audi fehler hülkenberg nicht nico technische",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "news-148158": {
-      "titelNorm": "antonelli eine george halbe kimi klatsche nächste russell sekunde verliert",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "news-146557": {
-      "titelNorm": "2026 formel qualifying rennduelle saison sprint",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "news-148157": {
-      "titelNorm": "erste startreihe verstappen windschatten",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "news-148156": {
-      "titelNorm": "antonelli bleibt bull doch eiskalt quali spiele spielt windschatten",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "news-148155": {
-      "titelNorm": "erklärt gasly hamilton lewis pierre unfällen",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "https://www.dailysportscar.com/?p=512974": {
-      "titelNorm": "adam aston blackthorn martin paul pole puts ricard",
-      "datum": "2026-07-18T17:26:42.301Z"
-    },
-    "https://www.dailysportscar.com/?p=512986": {
-      "titelNorm": "deliver linde misano race weerts",
-      "datum": "2026-07-18T23:14:03.651Z"
-    },
-    "post:2026-07-18-antonelli-sichert-sich-pole-in-belgien-norris-mit-rueckstand": {
-      "titelNorm": "antonelli mega nach norris pole schon",
-      "de": "antonelli belgien norris pole rückstand sich sichert",
-      "datum": "2026-07-18T23:14:29.051Z"
-    },
-    "post:2026-07-18-zrs-motorsport-gewinnt-am-paul-ricard-nach-chaosstart": {
-      "titelNorm": "after first incident motorsport paul ricard victorious",
-      "de": "chaosstart gewinnt motorsport nach paul ricard",
-      "datum": "2026-07-18T23:14:37.698Z"
-    },
-    "post:2026-07-18-bortoleto-startet-in-belgien-von-platz-acht": {
-      "titelNorm": "acht audi belgien bortoleto fahrer gabriel plötzlich startplatz",
-      "de": "acht belgien bortoleto platz startet",
-      "datum": "2026-07-18T23:14:44.522Z"
-    },
-    "https://sportscar365.com/?p=149614": {
-      "titelNorm": "linde misano race sprint weerts",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148165": {
-      "titelNorm": "auto bearman esteban langsamer mein ocon oliver",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148164": {
-      "titelNorm": "antonelli mega nach norris pole schon",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "https://www.dailysportscar.com/?p=512991": {
-      "titelNorm": "after first incident motorsport paul ricard victorious",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148163": {
-      "titelNorm": "acht audi belgien bortoleto fahrer gabriel plötzlich startplatz",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148162": {
-      "titelNorm": "auto fühlte großartig hadert hamilton lewis nach sich unfall vorher",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148161": {
-      "titelNorm": "abtrieb auto keine kurve mehr pouhon verstappen",
-      "datum": "2026-07-18T23:14:51.302Z"
-    },
-    "news-148160": {
-      "titelNorm": "falsche flagge frustriert gegen gelbe kostet leclerc nach platz russell",
-      "datum": "2026-07-18T23:14:51.302Z"
     },
     "post:2026-07-19-formel-1-2026-autos-bis-zu-50-km-h-langsamer-als-im-vorjahr": {
       "titelNorm": "2026 datenanalyse formel langsamer vergleich viel vorjahr",
@@ -3184,6 +3032,78 @@
     "news-148357": {
       "titelNorm": "1976 august entkam feuertod knapp lauda niki",
       "datum": "2026-08-01T12:43:45.891Z"
+    },
+    "https://sportscar365.com/?p=150407": {
+      "titelNorm": "acura america front leads lockout road yelloly",
+      "datum": "2026-08-01T23:26:50.712Z"
+    },
+    "https://sportscar365.com/?p=150332": {
+      "titelNorm": "america hedge race rain road soaked third wins",
+      "datum": "2026-08-01T23:26:50.722Z"
+    },
+    "https://www.dailysportscar.com/?p=514041": {
+      "titelNorm": "accident after backup practice sullivan switches vasser",
+      "datum": "2026-08-01T23:26:52.619Z"
+    },
+    "https://sportscar365.com/?p=150442": {
+      "titelNorm": "claim ericsson persing race season second",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=514051": {
+      "titelNorm": "acura america endurance grand pole prix road wins yelloly",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150387": {
+      "titelNorm": "dominant gounon juncadella seas take",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150386": {
+      "titelNorm": "america aston first martin road takes",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=514047": {
+      "titelNorm": "cours dominates magny race verstappen",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=514034": {
+      "titelNorm": "cadillac leads practice second",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150381": {
+      "titelNorm": "after backup crash practice sullivan vasser",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150366": {
+      "titelNorm": "leads practice rain soaked taylor",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=513995": {
+      "titelNorm": "help hopes miller season second strong that will",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "news-148360": {
+      "titelNorm": "alarm formel kompliziert moment schlägt teamchef vieles",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150343": {
+      "titelNorm": "after hedge inherits kleck penalty race",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=513996": {
+      "titelNorm": "acura after braun closure continue imsa programme want winning",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=513997": {
+      "titelNorm": "cours gounon heads magny qualifying seas",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://sportscar365.com/?p=150324": {
+      "titelNorm": "cours gounon magny makes pole seas takes waves",
+      "datum": "2026-08-01T23:26:59.116Z"
+    },
+    "https://www.dailysportscar.com/?p=514009": {
+      "titelNorm": "arta captures first honda mugen pole prelude super team",
+      "datum": "2026-08-01T23:26:59.116Z"
     }
   }
 }
