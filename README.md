@@ -84,6 +84,37 @@ Fachmedien) — die Glaubwürdigkeit des Blogs hängt an dieser Liste.
   ~150 frei/Tag. Ist das Tageslimit doch mal erschöpft (HTTP 429), beendet
   der Lauf sich sauber und der nächste Cron übernimmt.
 
+## Arbeitsweise
+
+Hier steckt KI an zwei verschiedenen Stellen, die man auseinanderhalten
+sollte.
+
+**Im Produkt:** Ein LLM schreibt die Posts aus den Feed-Artikeln. Das ist
+der Kern der Idee — und gleichzeitig das Risiko, denn ein Modell, das
+Nachrichten formuliert, kann Fakten erfinden. Dagegen läuft mehr als nur
+Hoffnung:
+
+- ein **Fakten-Gate** nach dem Schreiben, das den Post gegen den
+  Quelltext prüft,
+- der Writer bekommt den **Artikel-Volltext** (bis 4000 Zeichen) statt
+  nur des Feed-Teasers, weil aus einem Zweizeiler sonst frei erfunden wird,
+- eine **Substanz-Regel**, die zu kurze Posts verwirft,
+- eine **Whitelist** in `quellen.json`: nur offizielle Serien-Seiten und
+  etablierte Fachmedien,
+- eine **Schatten-Phase** von einer Woche, in der jeder Post gegen seine
+  Quelle gegengelesen wird, bevor die Seite verbreitet wird.
+
+**Beim Bauen:** Die Pipeline selbst ist KI-gestützt entstanden (Claude
+Code), die Commit-History weist das aus. Von mir kommen der Zuschnitt der
+Ressorts, die Quellenauswahl und die dreistufige Dublettenprüfung — gleicher
+Feed-Eintrag, ähnlicher Quelltitel, und nach dem Schreiben noch der
+deutsche Titel gegen bestehende Posts, weil dieselbe Meldung sonst über
+mehrere Feeds mehrfach erscheint. Trifft eine Meldung einen bestehenden
+Post, wird ihre Quelle angehängt statt ein Duplikat veröffentlicht.
+
+Ein Gegenbeispiel ohne KI-Unterstützung ist mein
+[Python-Abschlussprojekt](https://github.com/brachyboost-lang/PythonAbschlussProjekt).
+
 ## Noch offen (bewusst nicht in v1)
 
 - Newsletter (Wochen-Digest via Buttondown) — kommt ab den ersten Lesern
