@@ -3,6 +3,34 @@
 > Automatisch kuratierter Motorsport-/Simracing-Newsblog. Konzept & Architektur:
 > `KONZEPT.md`. Dieses Dokument ist das Handbuch für Betrieb und Wartung.
 
+## ⛔ Stand 11.08.2026: offline gestellt
+
+Der Blog ist **nicht mehr öffentlich erreichbar**. GitHub Pages wurde deaktiviert
+und der Workflow `newsblog` auf `disabled_manually` gesetzt; es erscheinen keine
+neuen Beiträge mehr. Die 247 bereits erzeugten Posts liegen unverändert in
+`posts/`, der Code ist vollständig — ein Neustart ist jederzeit möglich.
+
+**Grund:** Die Seite lief mit dem unausgefüllten Platzhalter-Impressum online
+(siehe Checkliste unten, Punkt „Impressum + Datenschutz ausfüllen"). Eine
+öffentlich zugängliche Seite braucht nach § 5 DDG eine ladungsfähige Anschrift;
+ein Postfach genügt dafür nicht.
+
+**Vor einem Wiederanschalten zu klären:**
+
+1. **Impressum und Datenschutz ausfüllen** — `seiten/impressum.html` und
+   `seiten/datenschutz.html`. Erfordert die Entscheidung, die private Anschrift
+   zu veröffentlichen; sie ist danach dauerhaft öffentlich.
+2. **Urheberrecht prüfen.** Die Posts entstehen aus bis zu 4000 Zeichen
+   Artikel-Volltext der Quellen. Je näher ein Post am Original liegt, desto eher
+   ist das eine Bearbeitung fremder Werke statt einer eigenständigen
+   Zusammenfassung. Die Whitelist in `quellen.json` besteht aus offiziellen
+   Serien-Seiten und Fachmedien.
+3. **Schatten-Phase nachholen** (siehe unten) — sie wurde beim ersten Start
+   übersprungen.
+
+Reaktivieren geht über `gh workflow enable newsblog` und Settings → Pages →
+Source auf „GitHub Actions".
+
 ## Wie es läuft (Überblick)
 
 - **GitHub Action** (`.github/workflows/newsblog.yml`) läuft 4× täglich:
@@ -26,13 +54,14 @@
 - [x] **LLM: nichts einzurichten.** Die Pipeline nutzt GitHub Models (kostenlos)
       über den automatischen `GITHUB_TOKEN` des Workflows — kein API-Key,
       kein Secret, keine Kosten. Gratis-Limit ~150 Anfragen/Tag; Bedarf max. 48.
-- [ ] **GitHub Pages aktivieren:** Repo → Settings → Pages → Source auf
-      **"GitHub Actions"** stellen. (Der Workflow versucht das auch selbst;
-      schlägt der `pages`-Job beim ersten Mal fehl, diesen Schalter prüfen.)
-      Kein Netlify mehr — dessen Free-Deploys sind begrenzt.
 - [ ] **Impressum + Datenschutz ausfüllen:** `seiten/impressum.html` und
-      `seiten/datenschutz.html` — die `[PLATZHALTER]` ersetzen. **Vorher nicht
-      öffentlich verlinken/bewerben!**
+      `seiten/datenschutz.html` — die `[PLATZHALTER]` ersetzen. **Erst danach
+      wieder online stellen.** Dieser Punkt wurde beim ersten Start übersehen
+      und hat zur Abschaltung geführt.
+- [ ] **GitHub Pages aktivieren:** Repo → Settings → Pages → Source auf
+      **"GitHub Actions"** stellen. Aktuell deaktiviert — erst nach dem Punkt
+      darüber wieder einschalten. Kein Netlify mehr, dessen Free-Deploys sind
+      begrenzt.
 - [x] **Blog-URL:** in `build.mjs` steht die GitHub-Pages-Adresse; nur bei
       Wechsel auf eine eigene Domain anpassen (wichtig für den RSS-Feed).
 - [ ] **Erster manueller Lauf:** GitHub → Actions → newsblog → Run workflow.
